@@ -8,7 +8,7 @@ import SignUp from "./components/common/SignUp";
 import LogIn from "./components/common/LogIn";
 // Common utility Component
 import PageNotFound from "./components/common/PageNotFound";
-// import RequireAuth from "./components/common/utils/RequireAuth";
+import RequireAuth from "./components/common/utils/RequireAuth";
 import SpinLoading from "./components/common/utils/SpinLoading";
 
 // User Components
@@ -29,6 +29,7 @@ const App = () => {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/log-in" element={<LogIn />} />
           {/* USER ROUTES */}
+          <Route element={<RequireAuth />}>        
           <Route path="user" element={<UserSidebar />}>
             <Route index element={<UserDashboard />} />
             <Route path="dashboard" element={<UserDashboard />} />
@@ -44,6 +45,7 @@ const App = () => {
             <Route path="lsa-analysis" element={<Outlet />}>
               {/* <Route index element={<LdaAnalysis />} /> */}
             </Route>
+          </Route>
           </Route>
         </Routes>
       </Suspense>
