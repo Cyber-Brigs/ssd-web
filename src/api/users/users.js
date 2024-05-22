@@ -1,16 +1,18 @@
 import { userAxios } from "..";
 
 export const createUserAccount = async (
+  first_name,
+  last_name,
   username,
   email,
-  password,
-  password_confirmation
+  password
 ) => {
   return await userAxios.post("/register/", {
+    first_name,
+    last_name,
     username,
     email,
-    password,
-    password_confirmation,
+    password
   });
 };
 

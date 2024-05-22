@@ -45,6 +45,6 @@ function usersAxios(baseURL) {
   return moduleAxios;
 }
 const axiosApi = createModuleAxios(process.env.REACT_APP_BASE_URL);
-const userAxios = usersAxios(process.env.REACT_APP_BASE_URL)
-
-export { axiosApi, userAxios };
+const userAxios = usersAxios(process.env.REACT_APP_BASE_URL);
+const textsApi = createModuleAxios(process.env.REACT_APP_TEXTS_URL);
+export { axiosApi, userAxios, textsApi };
