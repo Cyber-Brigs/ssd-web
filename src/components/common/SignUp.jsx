@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
-import {createUserAccount} from "../../api/users/users";
+import { createUserAccount } from "../../api/users/users";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { CircularProgress } from "@mui/material";
@@ -17,13 +17,20 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const [values, setValues] = useState({
+    first_name: "",
+    last_name: "",
     username: "",
     email: "",
     password: "",
-    password_confirmation: "",
   });
 
-  const { username, email, password, password_confirmation } = values;
+  const {
+    first_name,
+    last_name,
+    username,
+    email,
+    password,
+  } = values;
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -45,14 +52,13 @@ const SignUp = () => {
     setPasswordError("");
     setEmailError("");
 
-    createUserAccount(username, email, password, password_confirmation)
+    createUserAccount(first_name, last_name, username, email, password)
       .then((res) => {
         if (res.status === 201) {
           setUserCode(res.data.id);
           setSuccessMessage("Account created successfully, Proceed to log in!");
-          ;
           setTimeout(() => {
-            navigate("/log-in")
+            navigate("/log-in");
           }, 1500);
           setIsSubmitting(false);
         }
@@ -117,7 +123,7 @@ const SignUp = () => {
     <div>
       <Navbar />
 
-      <div className="max-h-screen flex items-center justify-center mt-5 bg-light-blue">
+      <div className="max-h-screen flex items-center justify-center mt-2 bg-light-blue">
         <div className="bg-white p-8 rounded shadow-md w-100 border border-custom-blue overflow-y-auto ">
           <h2 className="mb-6 font-semibold">
             Sign up for the CYBER-BRIGS NLP platform
@@ -135,14 +141,34 @@ const SignUp = () => {
             </div>
           )}
           <form onSubmit={(e) => handleSubmit(e)}>
-            <div className="mb-4">
+            <div className="mb-1">
+              <label className="block md:text-[16px] text-[10px] mb-2">
+                First Name
+              </label>
+              <input
+                type="text"
+                className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
+                placeholder="Jane"
+                value={first_name}
+                onChange={handleChange("first_name")}
+              />
+              <label className="block md:text-[16px] text-[10px] mb-2">
+                Last Name
+              </label>
+              <input
+                type="text"
+                className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
+                placeholder="Doe"
+                value={last_name}
+                onChange={handleChange("last_name")}
+              />
               <label className="block md:text-[16px] text-[10px] mb-2">
                 Username
               </label>
               <input
                 type="text"
                 className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
-                placeholder="Jane Doe"
+                placeholder="JaneDoe"
                 value={username}
                 onChange={handleChange("username")}
               />
@@ -184,19 +210,7 @@ const SignUp = () => {
               {passwordError && (
                 <p className="text-red-600 text-xs mt-1">{passwordError}</p>
               )}
-              <label className="block md:text-[16px] mb-2 mt-2 text-[10px]">
-                {" "}
-                Confirm password
-              </label>
-              <div className="relative">
-                <input
-                  type="password"
-                  className="w-full px-3 py-2 border border-grey-600 rounded text-xs"
-                  placeholder="******"
-                  value={password_confirmation}
-                  onChange={handleChange("password_confirmation")}
-                />
-              </div>
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -223,7 +237,7 @@ const SignUp = () => {
             </div>
           </form>
         </div>
-      </div>      
+      </div>
     </div>
   );
 };
