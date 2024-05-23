@@ -5,6 +5,7 @@ import thunk from "redux-thunk";
 import userSlice from "../features/user/userSlice";
 import uploadSlice from "../features/upload/uploadSlice";
 import textProcessingSlice from "../features/processing/textProcessingSlice";
+import similarityResultSlice from "../features/result/similarityResultSlice";
 const persistConfig = {
   key: "root",
   storage,
@@ -15,6 +16,7 @@ const appReducer = combineReducers({
   user: userSlice,
   upload: uploadSlice,
   textProcessing: textProcessingSlice,
+  similarityResult: similarityResultSlice,
 });
 
 const rootReducer = (state, action) => {
