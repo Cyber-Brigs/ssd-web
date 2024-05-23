@@ -37,7 +37,7 @@ const SrsDocPreviewModal = ({
           </IconButton>
         </Box>
         <Box sx={{ mt: 3, bgcolor: "background.paper" }}>
-          {fileUpload.document && (
+          {fileUpload && (
             <Worker
               workerUrl={`https://unpkg.com/pdfjs-dist@3.6.172/build/pdf.worker.min.js`}
             >
