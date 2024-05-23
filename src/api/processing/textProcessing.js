@@ -19,3 +19,15 @@ export const performTextPreprocessing = async (
     end_page,
   });
 };
+
+export const performModelTraining = async (type, text_processing_id) => {
+  return await textsApi.post(`/${type}-model-topics/`, {
+    text_processing_id,
+  });
+};
+
+export const completeModelTraining = async (type, model_id, selected_topics) => {
+  return await textsApi.patch(`/${type}-select-topics/${model_id}/`, {
+    selected_topics: parseInt(selected_topics),
+  });
+};
