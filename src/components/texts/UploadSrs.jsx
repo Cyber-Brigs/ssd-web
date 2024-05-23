@@ -15,7 +15,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { axiosApi } from "../../api";
 import { getUserSrsUploads } from "../../api/processing/textProcessing.js";
-import SrsUploadsTable from "./SrsUploadsTable.jsx";
+import SrsUploadsTable from "./tables/SrsUploadsTable.jsx";
 import DashView from "../users/DashView.jsx";
 const UploadSrs = () => {
   const [file, setFile] = useState(null);

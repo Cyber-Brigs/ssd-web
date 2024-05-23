@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setCurrentTextProcessingDetail } from "../../features/processing/textProcessingSlice.js";
+import { setCurrentTextProcessingDetail } from "../../../features/processing/textProcessingSlice.js";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import CustomDataGrid from "../common/utils/CustomDataGrid.jsx";
+import CustomDataGrid from "../../common/utils/CustomDataGrid.jsx";
 import { Box, Typography, IconButton, Menu, MenuItem } from "@mui/material";
 import moment from "moment";
 import Chip from "@mui/material/Chip";
@@ -11,7 +11,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CancelIcon from "@mui/icons-material/Cancel";
 import TranslateIcon from "@mui/icons-material/Translate";
 import TopicIcon from '@mui/icons-material/Topic';
-import RunAnalysisDialog from "./modals/RunAnalysisDialog.jsx";
+import RunAnalysisDialog from "../modals/RunAnalysisDialog.jsx";
 
 const ProcessedTextsTable = ({ textData }) => {
   const [openRunAnalysisModal, setOpenRunAnalysisModal] = useState(false);

@@ -12,7 +12,7 @@ import {
 import UploadIcon from "@mui/icons-material/Upload";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import DashView from "../users/DashView.jsx";
-import ProcessedTextsTable from "./ProcessedTextsTable.jsx";
+import ProcessedTextsTable from "./tables/ProcessedTextsTable.jsx";
 import { getUserTextPreprocessingEntries } from "../../api/processing/textProcessing.js";
 
 const TextPreProcessing = () => {

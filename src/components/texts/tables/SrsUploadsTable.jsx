@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setCurrentUploadDetail } from "../../features/upload/uploadSlice.js";
-import CustomDataGrid from "../common/utils/CustomDataGrid.jsx";
+import { setCurrentUploadDetail } from "../../../features/upload/uploadSlice.js";
+import CustomDataGrid from "../../common/utils/CustomDataGrid.jsx";
 import { Box, Typography, IconButton, Menu, MenuItem } from "@mui/material";
 import moment from "moment";
 import Chip from "@mui/material/Chip";
@@ -9,8 +9,8 @@ import { red, green } from "@mui/material/colors";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PageviewIcon from "@mui/icons-material/Pageview";
 import MemoryIcon from "@mui/icons-material/Memory";
-import SrsDocPreviewModal from "./modals/SrsDocPreviewModal.jsx";
-import SrsProcessModal from "./modals/SrsProcessModal.jsx";
+import SrsDocPreviewModal from "../modals/SrsDocPreviewModal.jsx";
+import SrsProcessModal from "../modals/SrsProcessModal.jsx";
 const SrsUploadsTable = ({ fileData }) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [rowParams, setRowParams] = useState({});
