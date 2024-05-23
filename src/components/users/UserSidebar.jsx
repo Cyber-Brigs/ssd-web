@@ -63,7 +63,7 @@ const UserSidebar = () => {
           >
             <div className="flex gap-4">
               <MemoryIcon className="ml-7 w-7 h-7 text-custom-blue " />
-              <p className=" text-[14px] ">Text PreProcessing</p>
+              <p className=" text-[14px] ">Topic Modelling</p>
             </div>
           </button>
           <button

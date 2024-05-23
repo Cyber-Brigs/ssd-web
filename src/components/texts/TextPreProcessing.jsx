@@ -33,14 +33,14 @@ const TextPreProcessing = () => {
   return (
     <div className="bg-[#F5F5F5] p-3 right-side min-h-screen min-w-full ">
       <div className="ml-60">
-        <DashView data={"Preprocessed Specification Documents"} />
+        <DashView data={"Document Topic Modelling"} />
       </div>
       <div className="ml-60">
         <Card sx={{ m: 2 }}>
           <CardHeader
             title={
               <Typography variant="h6" color="black" fontWeight="500">
-                Text Preprocessing
+                Topic Modelling
               </Typography>
             }
             subheader={
@@ -50,7 +50,7 @@ const TextPreProcessing = () => {
                 component="label"
               >
                 <Typography sx={{ color: "black" }}>
-                  <HelpOutlineIcon color="primary" /> Before analysis,
+                  <HelpOutlineIcon color="primary" /> Before topic modelling,
                   specification documents must be preprocessed. From the SRS Uploads
                   page, click on preprocess text and ensure that the 
                   status is "AVAILABLE"
