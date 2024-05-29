@@ -128,13 +128,13 @@ const ProcessedTextsTable = ({ textData }) => {
       },
     },
     {
-      field: "date_created",
+      field: "time_created",
       headerName: "Date Processed",
       width: 150,
       renderCell: (params) => {
         return (
           <Typography>
-            {moment(params.row.date_created).format("DD-MM-YYYY")}
+            {moment(params.row.time_created).format("DD-MM-YYYY")}
           </Typography>
         );
       },

@@ -72,13 +72,13 @@ const SrsUploadsTable = ({ fileData }) => {
       width: 450,
     },
     {
-      field: "date_created",
+      field: "uploaded_at",
       headerName: "Upload Date",
       width: 150,
       renderCell: (params) => {
         return (
           <Typography>
-            {moment(params.row.date_created).format("DD-MM-YYYY")}
+            {moment(params.row.uploaded_at).format("DD-MM-YYYY")}
           </Typography>
         );
       },
