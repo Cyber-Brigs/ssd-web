@@ -5,21 +5,18 @@ import {
   Rectangle,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Legend,
 } from "recharts";
 
-const SrsUploadsChart = () => {
-  const [hackathons, setHackathons] = useState({});
-
+const SrsUploadsChart = ({ plotData }) => {
   return (
     <div>
       {" "}
       <BarChart
         width={700}
         height={400}
-        data={hackathons}
+        data={plotData}
         margin={{
           top: 5,
           right: 30,
@@ -27,13 +24,12 @@ const SrsUploadsChart = () => {
           bottom: 5,
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" className="text-[8px]" />
-        <YAxis />
+        <XAxis dataKey="date" className="text-[8px]" />
+        <YAxis dataKey="number_Of_uploads" />
         <Tooltip />
         <Legend />
         <Bar
-          dataKey="date"
+          dataKey="number_Of_uploads"
           fill="#089BD9"
           activeBar={<Rectangle fill="#00588C" />}
         />
