@@ -15,8 +15,9 @@ import SpinLoading from "./components/common/utils/SpinLoading";
 import UserSidebar from "./components/users/UserSidebar";
 import UploadSrs from "./components/texts/UploadSrs";
 import TextPreProcessing from "./components/texts/TextPreProcessing";
-const UserDashboard = lazy(() => import("./components/users/UserDashboard"));
-
+import UserDashboard from "./components/users/UserDashboard";
+import SimilarityResultsPage from "./components/texts/SimilarityResultsPage";
+import ResultsViewPage from "./components/texts/ResultsViewPage.jsx";
 
 const App = () => {
   return (
@@ -29,23 +30,31 @@ const App = () => {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/log-in" element={<LogIn />} />
           {/* USER ROUTES */}
-          <Route element={<RequireAuth />}>        
-          <Route path="user" element={<UserSidebar />}>
-            <Route index element={<UserDashboard />} />
-            <Route path="dashboard" element={<UserDashboard />} />
-            <Route path="uploads" element={<Outlet />}>
-              <Route index element={<UploadSrs />} />
+          <Route element={<RequireAuth />}>
+            <Route path="user" element={<UserSidebar />}>
+              <Route index element={<UserDashboard />} />
+              <Route path="dashboard" element={<UserDashboard />} />
+              <Route path="uploads" element={<Outlet />}>
+                <Route index element={<UploadSrs />} />
+              </Route>
+              <Route path="preprocessing" element={<Outlet />}>
+                <Route index element={<TextPreProcessing />} />
+              </Route>
+              <Route path="lda-analysis" element={<Outlet />}>
+                <Route index element={<SimilarityResultsPage />} />
+                <Route
+                  path="results"
+                  element={<ResultsViewPage page={"lda"} />}
+                />
+              </Route>
+              <Route path="lsa-analysis" element={<Outlet />}>
+                <Route index element={<SimilarityResultsPage />} />
+                <Route
+                  path="results"
+                  element={<ResultsViewPage page={"lsa"} />}
+                />
+              </Route>
             </Route>
-            <Route path="preprocessing" element={<Outlet />}>
-              <Route index element={<TextPreProcessing />} />
-            </Route>
-            <Route path="lda-analysis" element={<Outlet />}>
-              {/* <Route index element={<LdaAnalysis />} /> */}
-            </Route>
-            <Route path="lsa-analysis" element={<Outlet />}>
-              {/* <Route index element={<LdaAnalysis />} /> */}
-            </Route>
-          </Route>
           </Route>
         </Routes>
       </Suspense>
