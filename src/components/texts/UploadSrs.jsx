@@ -30,7 +30,6 @@ const UploadSrs = () => {
         setSrsUploads(res.data);
         setLoading(false);
       } else {
-        console.log("no");
         setLoading(false);
       }
     });

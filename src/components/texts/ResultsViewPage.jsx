@@ -28,7 +28,6 @@ const ResultsViewPage = ({ page }) => {
   const navigate = useNavigate();
   const instance_id = useSelector(selectModelId)
   const fetchInstanceResults = () => {
-    console.log(page, instance_id);
     fetchProcessingResults(page, instance_id).then((res) => {
       setResultsData(res.data.results);
       setLoading(false);

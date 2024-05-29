@@ -38,8 +38,6 @@ const RunAnalysisDialog = ({
             setCurrentSimilarityResult({ currentSimilarityResult: res.data.results })
           );
           setIsRunning(2);
-          console.log(res.data.results);
-
         }
       })
       .catch((error) => {

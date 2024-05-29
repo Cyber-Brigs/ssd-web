@@ -24,7 +24,6 @@ const SrsProcessModal = ({ openSrsProcessModal, closeSrsProcessModal }) => {
   const handleProcessing = async () => {
     setIsProcessing(true);
     setError("");
-    // console.log(srsDoc.id, startPage, endPage)
     performTextPreprocessing(srsDoc.id, startPage, endPage).then((res)=> {
       if (res.status === 200) {
         setTimeout(() => {
