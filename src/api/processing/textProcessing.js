@@ -26,7 +26,11 @@ export const performModelTraining = async (type, text_processing_id) => {
   });
 };
 
-export const completeModelTraining = async (type, model_id, selected_topics) => {
+export const completeModelTraining = async (
+  type,
+  model_id,
+  selected_topics
+) => {
   return await textsApi.patch(`/${type}-select-topics/${model_id}/`, {
     selected_topics: parseInt(selected_topics),
   });
@@ -37,5 +41,11 @@ export const getTopicModels = async (type) => {
 };
 
 export const getSimilarityResults = async (type, model_id, processing_id) => {
-  return await textsApi.patch(`/${type}-results/?pk=${model_id}}&text_processing_id=${processing_id}/`);
+  return await textsApi.get(
+    `/${type}-results/?pk=${model_id}}&text_processing_id=${processing_id}`
+  );
+};
+
+export const fetchProcessingResults = async (type, model_id) => {
+  return await textsApi.get(`/view-${type}-results/?id=${model_id}`);
 };
