@@ -19,7 +19,7 @@ const TextPreProcessing = () => {
   const [loading, setLoading] = useState(true);
   const [textData, setTextData] = useState([]);
   const navigate = useNavigate();
-  
+
   const fetchFileUploads = () => {
     getUserTextPreprocessingEntries().then((res) => {
       setTextData(res.data);
@@ -31,12 +31,10 @@ const TextPreProcessing = () => {
     fetchFileUploads();
   }, []);
   return (
-    <div className="bg-[#F5F5F5] p-3 right-side min-h-screen min-w-full ">
-      <div className="ml-60">
+    <div className="bg-[#F5F5F5] py-3 right-side min-h-screen min-w-full ">
+      <div className="ml-[250px] mt-[65px]">
         <DashView data={"Document Topic Modelling"} />
-      </div>
-      <div className="ml-60">
-        <Card sx={{ m: 2 }}>
+        <Card>
           <CardHeader
             title={
               <Typography variant="h6" color="black" fontWeight="500">
@@ -51,8 +49,8 @@ const TextPreProcessing = () => {
               >
                 <Typography sx={{ color: "black" }}>
                   <HelpOutlineIcon color="primary" /> Before topic modelling,
-                  specification documents must be preprocessed. From the SRS Uploads
-                  page, click on preprocess text and ensure that the 
+                  specification documents must be preprocessed. From the SRS
+                  Uploads page, click on preprocess text and ensure that the
                   status is "AVAILABLE"
                 </Typography>
               </IconButton>
@@ -78,8 +76,9 @@ const TextPreProcessing = () => {
                 <ProcessedTextsTable textData={textData} />
               ) : (
                 <Typography sx={{ color: "black" }}>
-                  There are No Processed SRS Documents yet. To get started, click
-                  "OPEN UPLOADS", then proceed to run  the SRS Pre-Processor.
+                  There are No Processed SRS Documents yet. To get started,
+                  click "OPEN UPLOADS", then proceed to run the SRS
+                  Pre-Processor.
                 </Typography>
               )
             ) : null}

@@ -8,26 +8,34 @@ const DashView = ({ data }) => {
   return (
     <Box
       sx={{
+        position: "fixed",
+        top: 0,
+        left: "250px",
+        right: 0,
         backgroundColor: theme.palette.primary.main,
-        height: '80px',
-        borderRadius: '8px',
-        marginTop: '2',
-        marginX: 2,
-        display: 'flex',
-        justifyContent: 'space-between',
-        padding: '8px'
+        height: "80px",
+        display: "flex",
+        justifyContent: "space-between",
+        padding: "8px",
+        zIndex: 1000,
       }}
     >
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Typography
           variant="h5"
           component="h1"
-          sx={{ color: theme.palette.common.white, fontWeight: 'bold', padding: '16px' }}
+          sx={{
+            color: theme.palette.common.white,
+            fontWeight: "bold",
+            padding: "16px",
+          }}
         >
           {data}
         </Typography>
       </Box>
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end', padding: '12px' }}>
+      <Box
+        sx={{ display: "flex", justifyContent: "flex-end", padding: "12px" }}
+      >
         <UserLogOut />
       </Box>
     </Box>

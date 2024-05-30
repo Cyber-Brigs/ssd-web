@@ -26,7 +26,7 @@ const ResultsViewPage = ({ page }) => {
     description: "Linear Dirichlet Allocation",
   });
   const navigate = useNavigate();
-  const instance_id = useSelector(selectModelId)
+  const instance_id = useSelector(selectModelId);
   const fetchInstanceResults = () => {
     fetchProcessingResults(page, instance_id).then((res) => {
       setResultsData(res.data.results);
@@ -52,12 +52,10 @@ const ResultsViewPage = ({ page }) => {
   }, [page]);
 
   return (
-    <div className="bg-[#F5F5F5] p-3 right-side min-h-screen min-w-full ">
-      <div className="ml-60">
+    <div className="bg-[#F5F5F5] py-3 right-side min-h-screen min-w-full ">
+      <div className="ml-[250px] mt-[65px]">
         <DashView data={pageObject.description} />
-      </div>
-      <div className="ml-60">
-        <Card sx={{ m: 2 }}>
+        <Card>
           <CardHeader
             title={
               <Typography variant="h6" color="black" fontWeight="500">
@@ -91,15 +89,15 @@ const ResultsViewPage = ({ page }) => {
               </Button>
             }
           />
-          <CardContent sx={{ p: "-2" }}>            
+          <CardContent sx={{ p: "-2" }}>
             {loading && <LinearProgress />}
             {!loading ? (
               resultsData.length > 0 ? (
                 <CapecCard resultsData={resultsData} />
               ) : (
                 <Typography sx={{ color: "black" }}>
-                  There are No {pageObject.text} Results for this Models yet. To get
-                  started, click "GO BACK" and run results processing.
+                  There are No {pageObject.text} Results for this Models yet. To
+                  get started, click "GO BACK" and run results processing.
                 </Typography>
               )
             ) : null}

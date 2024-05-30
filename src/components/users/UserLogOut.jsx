@@ -16,7 +16,10 @@ const UserLogOut = () => {
     <div className="relative inline-block">
       <div className=" border transition-transform transform hover:-translate-y-1 shadow-md p-1 border-custom-grey rounded-lg space-x-2 cursor-pointer">
         <div onClick={() => handleLogOut()} className="relative right-0">
-          <LogoutIcon className="m-1 w-7 h-7 text-red-500 " />
+          <LogoutIcon
+            sx={{ color: "error.main", fontWeight: "bold" }}
+            className="m-1 w-7 h-7  "
+          />
           <span className="text-md text-white font-bold">LOG OUT</span>
         </div>
       </div>

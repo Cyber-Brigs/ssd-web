@@ -18,10 +18,10 @@ const UserDashboard = () => {
     });
   }, []);
   return (
-    <div className="bg-[#F5F5F5] p-3 right-side min-h-screen min-w-full ">
-      <div className="ml-60">
+    <div className="bg-[#F5F5F5] py-3 right-side  min-h-screen min-w-full ">
+      <div className="ml-[250px] mt-[40px] ">
         <DashView data={"Dashboard"}/>
-        <div className="flex flex-row gap-[30px] m-1">
+        <div className="flex flex-row gap-[30px]">
           <div className=" rounded-md bg-white shadow-md mt-[30px] w-[700px]">
             <h1 className="text-gray-700 font-semibold text-md mb-5 mt-10 ml-5">
               SRS Document Uploads
