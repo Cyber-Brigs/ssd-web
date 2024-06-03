@@ -1,26 +1,40 @@
 import React, { useState, useEffect } from "react";
 import {
-  Stack,
   Card,
   CardHeader,
   CardContent,
   Box,
   Typography,
   Button,
-  IconButton,
   LinearProgress,
 } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import UploadIcon from "@mui/icons-material/Upload";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { axiosApi } from "../../api";
 import { getUserSrsUploads } from "../../api/processing/textProcessing.js";
 import SrsUploadsTable from "./tables/SrsUploadsTable.jsx";
 import DashView from "../users/DashView.jsx";
+
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
+  height: 1,
+  overflow: "hidden",
+  position: "absolute",
+  bottom: 0,
+  left: 0,
+  whiteSpace: "nowrap",
+  width: 1,
+});
+
 const UploadSrs = () => {
   const [file, setFile] = useState(null);
   const [srsUploads, setSrsUploads] = useState([]);
+  const [isUploading, setIsUploading] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = React.useState(0);
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
   };
@@ -38,7 +52,24 @@ const UploadSrs = () => {
   useEffect(() => {
     fetchFileUploads();
   }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((oldProgress) => {
+        if (oldProgress === 100) {
+          return 0;
+        }
+        const diff = Math.random() * 10;
+        return Math.min(oldProgress + diff, 100);
+      });
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
   const handleUpload = async () => {
+    setIsUploading(true);
     const formData = new FormData();
     formData.append("document", file);
     try {
@@ -48,9 +79,12 @@ const UploadSrs = () => {
         },
       });
       setFile(null);
+      setIsUploading(false);
+      fetchFileUploads();
       alert("File uploaded successfully!");
     } catch (error) {
       console.error(error);
+      setIsUploading(false);
       alert("Failed to upload file.");
     }
   };
@@ -62,51 +96,48 @@ const UploadSrs = () => {
           data={"Software/System Requirement Specification Documents"}
         />
         <Card>
-          <CardHeader
-            title={
-              <Typography variant="h6" color="black" fontWeight="500">
-                Upload SRS Document
-              </Typography>
-            }
-            subheader={
-              <label for="file-upload" class="custom-file-upload">
-                <IconButton
-                  color="primary"
-                  aria-label="upload file"
+          {isUploading ? (
+            <Box sx={{ m: 2, width: "100%" }}>
+              <LinearProgress variant="determinate" value={progress} />{" "}
+              {file && (
+                <Typography sx={{ ml: 2 }}>Uploading {file.name}...</Typography>
+              )}
+            </Box>
+          ) : (
+            <CardHeader
+              title={
+                <Typography variant="h6" color="black" fontWeight="500">
+                  Upload SRS Document
+                </Typography>
+              }
+              subheader={
+                <Button
                   component="label"
+                  role={undefined}
+                  variant="contained"
+                  tabIndex={-1}
+                  startIcon={<CloudUploadIcon />}
                   onChange={handleFileChange}
                 >
-                  <AddCircleOutlineIcon />
-                  <input
-                    accept=".pdf"
-                    type="file"
-                    style={{ display: "none" }}
-                  />
-                  <Typography
-                    sx={{
-                      border: "solid primary.main 2px",
-                      padding: "5px",
-                    }}
-                  >
-                    Browse Files
-                  </Typography>
-                </IconButton>
-              </label>
-            }
-            action={
-              file && (
-                <Button
-                  startIcon={<UploadIcon />}
-                  type="submit"
-                  variant="outlined"
-                  onClick={handleUpload}
-                >
-                  Upload Document
+                  SELECT FILE
+                  <VisuallyHiddenInput type="file" accept=".pdf" />
                 </Button>
-              )
-            }
-          />
-          {file && <CardContent>{file.name}</CardContent>}
+              }
+              action={
+                file && (
+                  <Button
+                    startIcon={<UploadIcon />}
+                    type="submit"
+                    variant="outlined"
+                    onClick={handleUpload}
+                  >
+                    Upload Document
+                  </Button>
+                )
+              }
+            />
+          )}
+          {file && <Typography sx={{ ml: 2 }}>{file.name}</Typography>}
           <CardContent sx={{ p: "-2" }}>
             <Typography variant="h6" color="grey" fontWeight="500">
               User SRS Uploads
