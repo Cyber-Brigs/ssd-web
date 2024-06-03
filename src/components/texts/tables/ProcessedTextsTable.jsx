@@ -11,7 +11,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CancelIcon from "@mui/icons-material/Cancel";
 import TranslateIcon from "@mui/icons-material/Translate";
 import TopicIcon from '@mui/icons-material/Topic';
-import RunAnalysisDialog from "../modals/RunAnalysisDialog.jsx";
+import TopicModellingDialog from "../modals/TopicModellingDialog.jsx";
 
 const ProcessedTextsTable = ({ textData }) => {
   const [openRunAnalysisModal, setOpenRunAnalysisModal] = useState(false);
@@ -168,7 +168,7 @@ const ProcessedTextsTable = ({ textData }) => {
 
   return (
     <>
-      <RunAnalysisDialog
+      <TopicModellingDialog
         openRunAnalysisModal={openRunAnalysisModal}
         closeRunAnalysisModal={closeRunAnalysisModal}
         processType={processType}
