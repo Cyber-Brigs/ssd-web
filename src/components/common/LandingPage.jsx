@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "./Navbar.jsx";
+import Footer from "./Footer.jsx";
 const LandingPage = () => {
   const navigate = useNavigate();
 
@@ -39,14 +39,14 @@ const LandingPage = () => {
           </div>
           <div className="animate-text absolute hidden lg:block rounded-full  filter bottom-[180px]  right-[140px]  ">
             <img
-              src="https://unitarmedia.blob.core.windows.net/data/avatar1.jpeg"
+              src="/assets/avatar1.jpeg"
               className="rounded-full hidden lg:block border-[#b71079] border-2   w-[100px] h-[100px] "
               style={{ objectFit: "cover" }}
             />
           </div>
           <div className="animate-text absolute hidden lg:block left-[150px]  bottom-[90px] ">
             <img
-              src="https://unitarmedia.blob.core.windows.net/data/avatar2.jpeg"
+              src="/assets/avatar2.jpeg"
               className="rounded-full hidden lg:block border-[#db3b14] border-2 4 w-[100px] h-[100px] "
               style={{ objectFit: "cover" }}
             />
