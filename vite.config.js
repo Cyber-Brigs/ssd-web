@@ -13,5 +13,6 @@ export default ({ mode }) => {
       host: true,
       port: 5173,
     },
+    base: "./",
   });
 };
