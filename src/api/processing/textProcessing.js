@@ -42,7 +42,7 @@ export const getTopicModels = async (type) => {
 
 export const getSimilarityResults = async (type, model_id, processing_id) => {
   return await textsApi.get(
-    `/${type}-results/?pk=${model_id}}&text_processing_id=${processing_id}`
+    `/${type}-results/?pk=${model_id}&text_processing_id=${processing_id}`
   );
 };
 
