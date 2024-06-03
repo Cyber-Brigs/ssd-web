@@ -2,23 +2,28 @@ import React, { lazy, Suspense } from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 import "./components/styles/styles.css";
 // Base component
-import LandingPage from "./components/common/LandingPage";
+import LandingPage from "./components/common/LandingPage.jsx";
 // User Authentication
-import SignUp from "./components/common/SignUp";
-import LogIn from "./components/common/LogIn";
+import SignUp from "./components/common/SignUp.jsx";
+import LogIn from "./components/common/LogIn.jsx";
 // Common utility Component
-import PageNotFound from "./components/common/PageNotFound";
-import RequireAuth from "./components/common/utils/RequireAuth";
-import SpinLoading from "./components/common/utils/SpinLoading";
+import PageNotFound from "./components/common/PageNotFound.jsx";
+import RequireAuth from "./components/common/utils/RequireAuth.jsx";
+import SpinLoading from "./components/common/utils/SpinLoading.jsx";
 
 // User Components
-import UserSidebar from "./components/users/UserSidebar";
-import UploadSrs from "./components/texts/UploadSrs";
-import TextPreProcessing from "./components/texts/TextPreProcessing";
-import UserDashboard from "./components/users/UserDashboard";
-import SimilarityResultsPage from "./components/texts/SimilarityResultsPage";
-import ResultsViewPage from "./components/texts/ResultsViewPage.jsx";
-
+import UserSidebar from "./components/users/UserSidebar.jsx";
+import UploadSrs from "./components/texts/UploadSrs.jsx";
+import UserDashboard from "./components/users/UserDashboard.jsx";
+const TextPreProcessing = lazy(
+  () => import("./components/texts/TextPreProcessing.jsx")
+);
+const SimilarityResultsPage = lazy(
+  () => import("./components/texts/SimilarityResultsPage.jsx")
+);
+const ResultsViewPage = lazy(
+  () => import("./components/texts/ResultsViewPage.jsx")
+);
 const App = () => {
   return (
     <div className="App">
