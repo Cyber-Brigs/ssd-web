@@ -1,6 +1,6 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectAccessToken } from "../../../features/user/userSlice"; // Ensure logout action is imported
+import { selectAccessToken } from "../../../features/user/userSlice";
 import jwt_decode from "jwt-decode";
 
 const RequireAuth = () => {

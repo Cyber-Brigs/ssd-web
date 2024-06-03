@@ -2,7 +2,7 @@ import React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
 
-const SpinLoading = ({text}) => {
+const SpinLoading = () => {
   return (
     <div
       style={{
@@ -18,7 +18,7 @@ const SpinLoading = ({text}) => {
         size={60}
       />
       <Typography variant="h6" color="primary">
-        {text}
+        Processing...
       </Typography>
     </div>
   );

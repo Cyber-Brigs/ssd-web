@@ -69,7 +69,7 @@ const SrsUploadsTable = ({ fileData }) => {
     {
       field: "document_name",
       headerName: "Document Name",
-      width: 450,
+      width: 300,
     },
     {
       field: "uploaded_at",
