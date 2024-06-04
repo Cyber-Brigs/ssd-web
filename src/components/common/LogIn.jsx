@@ -10,7 +10,8 @@ import {
 import { requestToken } from "../../api/users/users";
 import jwt_decode from "jwt-decode";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Box } from "@mui/material";
+import Copyright from "../utilities/Copyright";
 
 const LogIn = () => {
   const [successMessage, setSuccessMessage] = useState("");
@@ -21,10 +22,7 @@ const LogIn = () => {
   const [user_code, setUserCode] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [openSignUpModal, setOpenSignUpModal] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const openModal = () => setOpenSignUpModal(true);
-  const closeModal = () => setOpenSignUpModal(false);
 
   const [values, setValues] = useState({
     username: "",
@@ -40,7 +38,7 @@ const LogIn = () => {
   const handleTogglePassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsSubmitting(true);
@@ -90,12 +88,27 @@ const LogIn = () => {
       return "cursor-pointer hover:bg-white hover:text-custom-blue hover:border-2 hover:border-custom-blue";
     }
   };
-  
+
   return (
     <div>
-      <Navbar openModal={openModal} />
-      <div className="max-h-screen mt-10 flex items-center justify-center  bg-light-blue relative bottom-[20px]">
-        <div className="bg-white p-8 rounded shadow-md w-100 border border-custom-blue">
+      <Navbar />
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="80vh"
+        marginX={{ xs: 2, sm: 0 }}
+      >
+        <Box
+          bgcolor="white"
+          p={2}
+          borderRadius={1}
+          boxShadow={3}
+          border={1}
+          borderColor="primary.main"
+          width="100%"
+          maxWidth="600px"
+        >
           <h2 className="mb-6 font-semibold">
             Login to the CYBER-BRIGS NLP platform
           </h2>
@@ -153,9 +166,9 @@ const LogIn = () => {
                 )}
               </button>
               <p className="mt-5 md:text-[16px] text-gray-600 text-[10px]">
-                Don't have a platform account?
+                Don't have a platform account
                 <Link
-                  onClick={() => navigate("/sign-up")}
+                  to={"/sign-up"}
                   className="text-custom-blue ml-1 md:text-[16px] text-[10px]"
                 >
                   Sign up here
@@ -163,8 +176,9 @@ const LogIn = () => {
               </p>
             </div>
           </form>
-        </div>
-      </div>
+        </Box>
+      </Box>
+      <Copyright />
     </div>
   );
 };

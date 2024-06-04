@@ -12,7 +12,6 @@ export default function Copyright() {
         display: "flex",
         justifyContent: "center",
         mt: 2,
-        backgroundColor: "azure"
       }}
       component="footer"
     >

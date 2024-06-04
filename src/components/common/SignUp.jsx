@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { createUserAccount } from "../../api/users/users";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Box } from "@mui/material";
+import Copyright from "../utilities/Copyright";
 
 const SignUp = () => {
   const [successMessage, setSuccessMessage] = useState("");
@@ -123,8 +124,23 @@ const SignUp = () => {
     <div>
       <Navbar />
 
-      <div className="max-h-screen flex items-center justify-center mt-2 bg-light-blue">
-        <div className="bg-white p-8 rounded shadow-md w-100 border border-custom-blue overflow-y-auto ">
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="80vh"
+        marginX={{ xs: 2, sm: 0 }}
+      >
+        <Box
+          bgcolor="white"
+          p={2}
+          borderRadius={1}
+          boxShadow={3}
+          border={1}
+          borderColor="primary.main"
+          width="100%"
+          maxWidth="600px"
+        >
           <h2 className="mb-6 font-semibold">
             Sign up for the CYBER-BRIGS NLP platform
           </h2>
@@ -236,8 +252,9 @@ const SignUp = () => {
               </p>
             </div>
           </form>
-        </div>
-      </div>
+          </Box>
+      </Box>
+      <Copyright/>
     </div>
   );
 };
