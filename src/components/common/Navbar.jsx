@@ -1,33 +1,43 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, useLocation } from "react-router-dom";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 const Navbar = () => {
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const currentPath = location.pathname;
   return (
-    <nav className=" flex flex-col md:flex md:flex-row py-6 md:justify-between md:items-center navbar">
-      <img
-        src="https://www.nrf.go.ke/wp-content/uploads/2023/06/NRF-LOGO-LOCKUP-Site-Icon.png"
-        alt="Logo"
-        className="ml-5 md:w-[200px] w-[100px]"
-      />
-      <div
-        className={`absolute md:static flex flex-col md:flex-row w-full md:mt-[0] mt-2 md:h-[0] h-[200px] md:flex  md:justify-end md:items-center md:flex-1 md:gap-10 bg-[#2e4161] border-t-[2px] border-custom-blue md:border-hidden md:bg-inherit z-[1] md:z-auto transition-all duration-500 ease-in`}
-      >
-        <button
-          onClick={() => navigate("/log-in")}
-          className="md:mt-[0] mt-5 cursor-pointer md:border-custom-blue md:border-[2px] md:rounded-[8px] md:mr-4 md:p-2 md:h-50 text-custom-blue text-[18px] transition-transform transform hover:-translate-y-1"
-        >
-          Log In
-        </button>
-        <button
-          onClick={() => navigate("/sign-up")}
-          className="md:mt-[0] mt-5 cursor-pointer md:inline-flex md:rounded-[8px] md:flex-col md:items-center md:justify-center md:mr-4 p-2 h-50 text-white flex-shrink-0 rounded-10 bg-custom-blue transition-transform transform hover:-translate-y-1"
-        >
-          Sign up
-        </button>
-      </div>
-    </nav>
+    <AppBar position="static" color="default" sx={{boxShadow: "0", height: "100px", p: 2}}>
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <img
+          src="https://www.nrf.go.ke/wp-content/uploads/2023/06/NRF-LOGO-LOCKUP-Site-Icon.png"
+          alt="Logo"
+          style={{ width: 200 }}
+        />
+        <Box sx={{ display: "flex", gap: 2 }}>
+          {currentPath !== "/log-in" && (
+            <Button
+              onClick={() => navigate("/log-in")}
+              variant="outlined"
+              color="primary"
+            >
+              Log In
+            </Button>
+          )}
+          {currentPath !== "/sign-up" && (
+            <Button
+              onClick={() => navigate("/sign-up")}
+              variant="contained"
+              color="primary"
+            >
+              Sign Up
+            </Button>
+          )}
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
 
