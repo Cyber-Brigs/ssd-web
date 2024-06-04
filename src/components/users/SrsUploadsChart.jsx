@@ -14,8 +14,8 @@ const SrsUploadsChart = ({ plotData }) => {
     <div>
       {" "}
       <BarChart
-        width={700}
-        height={400}
+        width={420}
+        height={250}
         data={plotData}
         margin={{
           top: 5,
@@ -24,7 +24,7 @@ const SrsUploadsChart = ({ plotData }) => {
           bottom: 5,
         }}
       >
-        <XAxis dataKey="date" className="text-[8px]" />
+        <XAxis dataKey="date" className="text-[6px]" />
         <YAxis dataKey="number_Of_uploads" />
         <Tooltip />
         <Legend />
