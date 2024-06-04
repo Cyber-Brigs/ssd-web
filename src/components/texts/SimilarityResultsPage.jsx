@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardContent,
   IconButton,
+  Box,
 } from "@mui/material";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import DashView from "../users/DashView.jsx";
@@ -65,61 +66,64 @@ const SimilarityResultsPage = () => {
     fetchTopicModels();
   }, [page, location]);
   return (
-    <div className="bg-[#F5F5F5] py-3 right-side min-h-screen min-w-full ">
-      <div className="ml-[250px] mt-[65px]">
-        <DashView data={pageObject.description} />
-        <Card >
-          <CardHeader
-            title={
-              <Typography variant="h6" color="black" fontWeight="500">
-                {pageObject.text} Results
-              </Typography>
-            }
-            subheader={
-              <IconButton
-                color="primary"
-                aria-label="upload file"
-                component="label"
-              >
-                <Typography sx={{ color: "black" }}>
-                  <HelpOutlineIcon color="primary" /> Before {pageObject.text}{" "}
-                  result processing, topic modelling on a specification document
-                  must be completed. From the Topic Modelling page, click on
-                  "Actions" then "Run {pageObject.text} Model" and follow the
-                  prompts.
-                </Typography>
-              </IconButton>
-            }
-            action={
-              <Button
-                variant="outlined"
-                sx={{ borderRadius: 2, bgcolor: "primary" }}
-                startIcon={<MemoryIcon />}
-                onClick={() => navigate("/user/preprocessing")}
-              >
-                Go To Models
-              </Button>
-            }
-          />
-          <CardContent sx={{ p: "-2" }}>
-            <Typography variant="h6" color="grey" fontWeight="500">
-              {pageObject.text} Topic Models
+    <Box
+      sx={{
+        mt: { xs: 12, sm: 12, md: 3 },
+        mx: 3,
+      }}
+    >
+      <Card
+        sx={{
+          width: { xs: "100vw", sm: "95vw", md: "82vw" },
+        }}
+        
+      >
+        <CardHeader
+          title={
+            <Typography variant="h6" color="black" fontWeight="500">
+              {pageObject.text} Results
             </Typography>
-            {loading && <LinearProgress />}
-            {!loading ? (
-              modelData.length > 0 ? (
+          }
+          subheader={
+            <Typography sx={{ color: "black" }}>
+              <HelpOutlineIcon color="primary" /> Before {pageObject.text}{" "}
+              result processing, topic modelling on a specification document
+              must be completed. From the Topic Modelling page, click on
+              "Actions" then "Run {pageObject.text} Model" and follow the
+              prompts.
+            </Typography>
+          }
+          action={
+            <Button
+              variant="outlined"
+              sx={{ borderRadius: 2, bgcolor: "primary" }}
+              startIcon={<MemoryIcon />}
+              onClick={() => navigate("/user/preprocessing")}
+            >
+              Go To Models
+            </Button>
+          }
+        />
+        <CardContent sx={{ p: "-2" }}>
+          <Typography variant="h6" color="grey" fontWeight="500">
+            {pageObject.text} Topic Models
+          </Typography>
+          {loading && <LinearProgress />}
+          {!loading ? (
+            modelData.length > 0 ? (
+              <Box sx={{ overflowX: "auto" }}>
                 <TopicModelsTable modelData={modelData} type={page} />
-              ) : (
-                <Typography sx={{ color: "black" }}>
-                  There are No {pageObject.text} Topic Models yet. To get
-                  started, click "GO TO MODELS".
-                </Typography>
-              )
-            ) : null}
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+              </Box>
+            ) : (
+              <Typography sx={{ color: "black" }}>
+                There are No {pageObject.text} Topic Models yet. To get started,
+                click "GO TO MODELS".
+              </Typography>
+            )
+          ) : null}
+        </CardContent>
+      </Card>
+    </Box>
   );
 };
 
