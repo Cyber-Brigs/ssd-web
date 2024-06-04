@@ -39,9 +39,7 @@ const App = () => {
             <Route path="user" element={<UserSidebar />}>
               <Route index element={<UserDashboard />} />
               <Route path="dashboard" element={<UserDashboard />} />
-              <Route path="uploads" element={<Outlet />}>
-                <Route index element={<UploadSrs />} />
-              </Route>
+              <Route path="uploads" element={<UploadSrs />} />
               <Route path="preprocessing" element={<Outlet />}>
                 <Route index element={<TextPreProcessing />} />
               </Route>

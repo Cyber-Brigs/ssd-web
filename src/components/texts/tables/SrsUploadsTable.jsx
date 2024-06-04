@@ -69,7 +69,7 @@ const SrsUploadsTable = ({ fileData }) => {
     {
       field: "document_name",
       headerName: "Document Name",
-      width: 300,
+      width: 200,
     },
     {
       field: "uploaded_at",
@@ -86,7 +86,7 @@ const SrsUploadsTable = ({ fileData }) => {
     {
       field: "status",
       headerName: "Status",
-      width: 250,
+      width: 150,
       renderCell: (params) => {
         return (
           <Chip variant="outlined" size="medium" {...getChipProps(params)} />

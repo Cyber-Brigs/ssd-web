@@ -15,7 +15,6 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { axiosApi } from "../../api";
 import { getUserSrsUploads } from "../../api/processing/textProcessing.js";
 import SrsUploadsTable from "./tables/SrsUploadsTable.jsx";
-import DashView from "../users/DashView.jsx";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -90,74 +89,80 @@ const UploadSrs = () => {
   };
 
   return (
-    <div className="bg-[#F5F5F5] py-3 right-side min-h-screen min-w-full ">
-      <div className="ml-[250px] mt-[65px]">
-        <DashView
-          data={"Software/System Requirement Specification Documents"}
-        />
-        <Card>
-          {isUploading ? (
-            <Box sx={{ m: 2, width: "100%" }}>
-              <LinearProgress variant="determinate" value={progress} />{" "}
-              {file && (
-                <Typography sx={{ ml: 2 }}>Uploading {file.name}...</Typography>
-              )}
-            </Box>
-          ) : (
-            <CardHeader
-              title={
-                <Typography variant="h6" color="black" fontWeight="500">
-                  Upload SRS Document
-                </Typography>
-              }
-              subheader={
+    <Box
+      sx={{
+        mt: { xs: 10, sm: 10, md: 2 },
+        mx: 3,
+      }}
+    >
+      <Card
+        sx={{
+          width: { xs: "100vw", sm: "75vw", md: "75vw" },
+        }}
+      >
+        {isUploading ? (
+          <Box sx={{ m: 2, width: "100%" }}>
+            <LinearProgress variant="determinate" value={progress} />{" "}
+            {file && (
+              <Typography sx={{ ml: 2 }}>Uploading {file.name}...</Typography>
+            )}
+          </Box>
+        ) : (
+          <CardHeader
+            title={
+              <Typography variant="h6" color="black" fontWeight="500">
+                Upload SRS Document
+              </Typography>
+            }
+            subheader={
+              <Button
+                component="label"
+                role={undefined}
+                variant="contained"
+                tabIndex={-1}
+                startIcon={<CloudUploadIcon />}
+                onChange={handleFileChange}
+              >
+                SELECT FILE
+                <VisuallyHiddenInput type="file" accept=".pdf" />
+              </Button>
+            }
+            action={
+              file && (
                 <Button
-                  component="label"
-                  role={undefined}
-                  variant="contained"
-                  tabIndex={-1}
-                  startIcon={<CloudUploadIcon />}
-                  onChange={handleFileChange}
+                  startIcon={<UploadIcon />}
+                  type="submit"
+                  variant="outlined"
+                  onClick={handleUpload}
                 >
-                  SELECT FILE
-                  <VisuallyHiddenInput type="file" accept=".pdf" />
+                  Upload Document
                 </Button>
-              }
-              action={
-                file && (
-                  <Button
-                    startIcon={<UploadIcon />}
-                    type="submit"
-                    variant="outlined"
-                    onClick={handleUpload}
-                  >
-                    Upload Document
-                  </Button>
-                )
-              }
-            />
-          )}
-          {file && <Typography sx={{ ml: 2 }}>{file.name}</Typography>}
-          <CardContent sx={{ p: "-2" }}>
-            <Typography variant="h6" color="grey" fontWeight="500">
-              User SRS Uploads
-            </Typography>
-            {loading && <LinearProgress />}
-            {!loading ? (
-              srsUploads.length > 0 ? (
-                <SrsUploadsTable fileData={srsUploads} />
-              ) : (
-                <Typography sx={{ color: "black" }}>
-                  <HelpOutlineIcon color="primary" />
-                  There are no srs documents uploaded yet. To get started, click
-                  Browse files above, and proceed to upload the SRS document.
-                </Typography>
               )
-            ) : null}
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+            }
+          />
+        )}
+        {file && <Typography sx={{ ml: 2 }}>{file.name}</Typography>}
+        <CardContent sx={{ p: "-2" }}>
+          <Typography variant="h6" color="grey" fontWeight="500">
+            User SRS Uploads
+          </Typography>
+          {loading && <LinearProgress />}
+          {!loading ? (
+            srsUploads.length > 0 ? (
+              <Box sx={{ overflowX: "auto" }}>
+                <SrsUploadsTable fileData={srsUploads} />
+              </Box>
+            ) : (
+              <Typography sx={{ color: "black" }}>
+                <HelpOutlineIcon color="primary" />
+                There are no srs documents uploaded yet. To get started, click
+                Browse files above, and proceed to upload the SRS document.
+              </Typography>
+            )
+          ) : null}
+        </CardContent>
+      </Card>
+    </Box>
   );
 };
 
