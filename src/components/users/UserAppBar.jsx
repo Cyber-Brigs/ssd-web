@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-// import { selectCurrentUser } from "../../features/user/userSlice.js";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -62,7 +60,6 @@ export default function UserAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
   const [openUserAccountModal, setOpenUserAccountModal] = useState(false);
-  // const user = useSelector(selectCurrentUser);
   const handleUserAccount = () => {
     handleMenuClose();
     setOpenUserAccountModal(true);
@@ -168,12 +165,12 @@ export default function UserAppBar() {
               <Typography
                 sx={{ fontSize: "1rem", fontWeight: 400, color: "white" }}
               >
-                steve
+                Administrator
               </Typography>
               <Typography
                 sx={{ fontSize: "0.9rem", fontWeight: 200, color: "white" }}
               >
-                Sales
+                SEC ANALYST
               </Typography>
             </Box>
           </Box>

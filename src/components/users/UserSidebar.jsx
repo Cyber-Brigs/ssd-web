@@ -50,7 +50,7 @@ const pages = [
     value: "preprocessing",
   },
   {
-    label: "LDA Analysi",
+    label: "LDA Analysis",
     icon: <TopicIcon sx={{ mr: 2 }} fontSize="small" />,
     value: "lda-analysis",
   },
@@ -324,14 +324,14 @@ const UserSideBar = () => {
             </Tooltip>
             <Box sx={{ mr: 1, textAlign: "right" }}>
               <Typography
-                sx={{ fontSize: "1rem", fontWeight: 400, color: "white" }}
+                sx={{ fontSize: "0.9rem", fontWeight: 400, color: "white" }}
               >
-                Steve
+                Administrator
               </Typography>
               <Typography
-                sx={{ fontSize: "0.9rem", fontWeight: 200, color: "white" }}
+                sx={{ fontSize: "0.7rem", fontWeight: 200, color: "white" }}
               >
-                Sec Analyst
+                SEC ANALYST
               </Typography>
             </Box>
           </Box>
