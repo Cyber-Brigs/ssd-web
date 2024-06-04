@@ -40,9 +40,7 @@ const App = () => {
               <Route index element={<UserDashboard />} />
               <Route path="dashboard" element={<UserDashboard />} />
               <Route path="uploads" element={<UploadSrs />} />
-              <Route path="preprocessing" element={<Outlet />}>
-                <Route index element={<TextPreProcessing />} />
-              </Route>
+              <Route path="preprocessing" element={<TextPreProcessing />} />
               <Route path="lda-analysis" element={<Outlet />}>
                 <Route index element={<SimilarityResultsPage />} />
                 <Route
