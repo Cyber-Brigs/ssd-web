@@ -26,9 +26,10 @@ const SrsProcessModal = ({ openSrsProcessModal, closeSrsProcessModal }) => {
     setError("");
     performTextPreprocessing(srsDoc.id, startPage, endPage).then((res)=> {
       if (res.status === 200) {
+        closeSrsProcessModal();
         setTimeout(() => {
           navigate("/preprocessing");
-        }, 1500);
+        }, 1000);
         setIsProcessing(false);
       }
     })
