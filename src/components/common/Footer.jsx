@@ -1,59 +1,80 @@
 import React from "react";
+import { Grid, Typography, Link } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import { LinkedIn, YouTube } from "@mui/icons-material";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="bg-white text-[#12141D]">
-      <div className="flex justify-between mt-3  bg-[#2e4161] p-2">
-        <img
-          src="https://www.nrf.go.ke/wp-content/uploads/2023/06/NRF-LOGO-LOCKUP-Site-Icon.png"
-          alt="Logo"
-          className="md:w-[200px] w-[100px]"
-        />
-        <p className="flex items-center  md:ml-11 ml-2 text-[8px] md:text-[16px] text-white">
-          {" "}
-          © Copyright {currentYear}, All Rights Reserved
-        </p>
-
-        <p className="flex items-center  md:mr-11  mr-2 md:text-[16px] text-[10px] mb-1 text-white">
-          {" "}
-          Privacy Policy Terms & Conditions
-        </p>
-        <div className="flex items-center space-x-4 mr-4 md:mr-20">
-          <a
-            href="https://www.facebook.com/nrfkenya"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FacebookIcon className="text-gray-600 hover:text-blue-500 cursor-pointer transition" />
-          </a>{" "}
-          <a
-            href="https://www.linkedin.com/company/national-research-fund-kenya/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <LinkedIn className="text-gray-600 hover:text-blue-500 cursor-pointer transition" />
-          </a>
-          <a
-            href="https://twitter.com/nrfkenya"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <TwitterIcon className="text-gray-600 hover:text-blue-500 cursor-pointer transition" />
-          </a>
-          <a
-            href="https://www.youtube.com/@nationalresearchfundkenya8036"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <YouTube className="text-gray-600 hover:text-red-500 cursor-pointer transition" />
-          </a>
-        </div>
-      </div>
+    <div style={{ marginTop: "auto" }}>
+      <Grid
+        container
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        className="bg-[#2e4161] p-2"
+      >
+        <Grid item xs={12} md={3}>
+          <img
+            src="https://www.nrf.go.ke/wp-content/uploads/2023/06/NRF-LOGO-LOCKUP-Site-Icon.png"
+            alt="Logo"
+            style={{ maxWidth: "200px", width: "100%" }}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Typography variant="body2" align="center" className="text-white">
+            © Copyright {currentYear}, All Rights Reserved
+          </Typography>
+          <Typography variant="body2" align="center" className="text-white">
+            Privacy Policy Terms & Conditions
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={3} container justifyContent="flex-end" spacing={2}>
+          <Grid item>
+            <Link
+              href="https://www.facebook.com/nrfkenya"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-blue-500 cursor-pointer transition"
+            >
+              <FacebookIcon />
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link
+              href="https://www.linkedin.com/company/national-research-fund-kenya/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-blue-500 cursor-pointer transition"
+            >
+              <LinkedInIcon />
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link
+              href="https://twitter.com/nrfkenya"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-blue-500 cursor-pointer transition"
+            >
+              <TwitterIcon />
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link
+              href="https://www.youtube.com/@nationalresearchfundkenya8036"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-red-500 cursor-pointer transition"
+            >
+              <YouTubeIcon />
+            </Link>
+          </Grid>
+        </Grid>
+      </Grid>
     </div>
   );
 };

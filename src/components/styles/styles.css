@@ -5,9 +5,21 @@
 @tailwind utilities;
 
 body {
-  background-color: #e2edf1;
+  background-color: #fff;
   font-family: "Inter", sans-serif;
+  overflow-x: hidden; 
 }
+
+@media (max-width: 768px) {
+  .dashcomp {
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+}
+
 h2 {
   font-family: "Lexend", sans-serif;
   font-weight: 600;
@@ -67,10 +79,10 @@ h2 {
   margin-bottom: 10px;
 }
 
-.text-container {
+/* .text-container {
   position: relative;
   z-index: 1;
-}
+} */
 
 @keyframes pulse {
   0% {
