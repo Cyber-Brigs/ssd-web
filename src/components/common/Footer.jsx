@@ -25,10 +25,10 @@ const Footer = () => {
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <Typography variant="body2" align="center" className="text-white">
+          <Typography variant="body1" align="center" className="text-white">
             © Copyright {currentYear}, All Rights Reserved
           </Typography>
-          <Typography variant="body2" align="center" className="text-white">
+          <Typography variant="body1" align="center" className="text-white">
             Privacy Policy Terms & Conditions
           </Typography>
         </Grid>

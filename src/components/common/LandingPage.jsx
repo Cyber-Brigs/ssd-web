@@ -16,12 +16,12 @@ const LandingPage = () => {
               Cyber Brigs, Unleashing Innovation, <br />
               Solving One Huddle at a time!
             </h1>
-            <p className="text-[12px] mt-4 md:text-[18px] text-center md:w-[588px] md:mt-7 lg:ml-20 text-[#4d4d4d]">
+            <p className="text-[12px] mt-4 md:text-[18px] text-center md:w-[588px] md:mt-7 text-[#4d4d4d]">
               Worry no more about the complexities of designing and maintaining
               a secure cyber system. Cyber Brigs offers a wholesome
               implementation, a blend of modern technology and seasoned
               experience to detect, mitigate and avert any vectors of attack.
-              Lets dive into the world of AI, NLP, Statistics and Cyber Security
+              Lets dive into the world of ML, NLP, Statistics and Cyber Security
               to experience the magic!
             </p>
           </div>

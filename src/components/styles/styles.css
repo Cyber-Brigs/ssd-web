@@ -79,11 +79,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* .text-container {
-  position: relative;
-  z-index: 1;
-} */
-
 @keyframes pulse {
   0% {
     transform: scale(1);
